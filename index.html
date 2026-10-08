@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Research Apps</title>
+    <meta
+      name="description"
+      content="Index of the current browser instruments: state dynamics, prompt comparison, memory, and a lattice simulation."
+    />
+    <meta name="theme-color" content="#071014" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+    />
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #071014;
+        --panel: #0c1c24;
+        --panel-2: #10232d;
+        --line: #203943;
+        --ink: #e4f0f3;
+        --muted: #94aab2;
+        --cyan: #55b7ff;
+        --teal: #42d4aa;
+        --gold: #ffb86b;
+        --sans: "IBM Plex Sans", system-ui, sans-serif;
+        --mono: "IBM Plex Mono", ui-monospace, monospace;
+      }
+      * { box-sizing: border-box; }
+      button, [role="button"] { cursor: pointer; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--cyan) 14%, transparent), transparent 28rem),
+          radial-gradient(circle at 100% 8%, color-mix(in srgb, var(--teal) 8%, transparent), transparent 20rem),
+          var(--bg);
+        color: var(--ink);
+        font: 15px/1.55 var(--sans);
+      }
+      a { color: inherit; }
+      .sr {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+      }
+      .shell { width: min(1040px, calc(100% - 32px)); margin: 0 auto; padding: 40px 0 48px; }
+      .mast { max-width: 40rem; margin-bottom: 28px; }
+      .eyebrow {
+        margin: 0;
+        color: var(--teal);
+        font: 600 12px/1.4 var(--mono);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      h1 {
+        margin: 10px 0 8px;
+        font-size: clamp(2.125rem, 9vw, 4rem);
+        font-weight: 600;
+        letter-spacing: -0.04em;
+        line-height: 1.02;
+      }
+      .lead {
+        margin: 0 0 12px;
+        color: var(--cyan);
+        font: 500 clamp(1.05rem, 4vw, 1.4rem)/1.4 var(--mono);
+      }
+      .intro { margin: 0; max-width: 40rem; color: var(--muted); font-size: 17px; }
+      .controls { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+      .search input {
+        width: 100%;
+        min-height: 44px;
+        padding: 10px 14px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--panel);
+        color: var(--ink);
+        font: inherit;
+        font-size: 16px;
+      }
+      .search input::placeholder { color: var(--muted); }
+      .search input:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+      .filters { display: flex; flex-wrap: wrap; gap: 8px; }
+      .filters button {
+        min-height: 44px;
+        padding: 0 14px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: transparent;
+        color: var(--muted);
+        font: inherit;
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .filters button[aria-pressed="true"] {
+        border-color: color-mix(in srgb, var(--cyan) 55%, var(--line));
+        background: color-mix(in srgb, var(--cyan) 12%, transparent);
+        color: var(--ink);
+      }
+      .filters button:focus-visible,
+      .actions a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+      .group + .group { margin-top: 28px; }
+      .group-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px; }
+      .group-head h2 {
+        margin: 0;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        line-height: 1.4;
+        text-transform: uppercase;
+      }
+      .group-head span { color: var(--muted); font: 12px/1.4 var(--mono); }
+      .grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+      .card {
+        display: flex;
+        min-height: 220px;
+        flex-direction: column;
+        padding: 20px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: linear-gradient(145deg, color-mix(in srgb, var(--panel-2) 96%, transparent), color-mix(in srgb, var(--panel) 96%, transparent));
+      }
+      .tag {
+        align-self: flex-start;
+        margin: 0;
+        padding: 4px 9px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: var(--teal);
+        font: 600 11px/1.4 var(--mono);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+      .card h3 { margin: 16px 0 8px; font-size: 22px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; }
+      .summary { margin: 0; color: var(--muted); }
+      .place { margin: 12px 0 0; color: color-mix(in srgb, var(--muted) 80%, var(--cyan)); font: 12px/1.4 var(--mono); }
+      .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 18px; }
+      .actions a {
+        display: inline-flex;
+        min-height: 44px;
+        align-items: center;
+        gap: 6px;
+        padding: 0 4px;
+        color: var(--cyan);
+        font-weight: 600;
+        text-decoration: none;
+      }
+      .actions a svg { width: 16px; height: 16px; }
+      .actions a.source { color: var(--muted); font-weight: 500; }
+      .empty { margin: 8px 0 24px; color: var(--muted); }
+      footer { display: flex; margin-top: 28px; color: var(--muted); font-size: 13px; }
+      @media (min-width: 720px) {
+        .shell { padding-top: 64px; }
+        .controls { flex-direction: row; align-items: center; }
+        .search { flex: 1; }
+        .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+        .card { min-height: 248px; padding: 24px; }
+      }
+      @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+        .card { transition: border-color 160ms ease, transform 160ms ease; }
+        .card:hover { transform: translateY(-3px); border-color: var(--cyan); }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="mast">
+        <p class="eyebrow">executable browser instruments</p>
+        <h1>Research Apps</h1>
+        <p class="lead">Plain names. Separate runs.</p>
+        <p class="intro">
+          A card opens the live app, or the repository when the tool only runs
+          on your computer.
+        </p>
+      </header>
+      <div class="controls">
+        <label class="search">
+          <span class="sr">Find an instrument</span>
+          <input id="query" type="search" placeholder="Find an instrument" autocomplete="off" />
+        </label>
+        <div class="filters" id="filters" role="group" aria-label="Instrument groups"></div>
+      </div>
+      <p class="empty" id="empty" hidden>Nothing matches that search.</p>
+      <div id="list"></div>
+      <footer>
+        <span>Runs from the hosted pages, not from this index.</span>
+      </footer>
+    </main>
+    <script>
+      const groups = [
+        { id: "all", label: "All" },
+        { id: "state", label: "State" },
+        { id: "prompt", label: "Prompt" },
+        { id: "memory", label: "Memory" },
+        { id: "lattice", label: "Lattice" },
+      ];
+      const groupTitles = {
+        state: "State dynamics",
+        prompt: "Prompt comparison",
+        memory: "Memory",
+        lattice: "Lattice",
+      };
+      const sectionOrder = ["state", "prompt", "memory", "lattice"];
+      const instruments = [
+        {
+          id: "lab",
+          group: "state",
+          name: "State Dynamics Lab",
+          tag: "Start here",
+          summary: "The reference engine. Pick an input, step the update, turn a mechanism off, and read the trace.",
+          place: "state-dynamics-engine / simulator",
+          href: "https://donaldtuttle.github.io/state-dynamics-engine/simulator/",
+          openLabel: "Open lab",
+          sourceHref: "https://github.com/donaldtuttle/state-dynamics-engine",
+        },
+        {
+          id: "probe",
+          group: "state",
+          name: "Compact Probe",
+          tag: "Same reference engine",
+          summary: "A radar view of that engine, with a repeatable 64-step reference and replay checks.",
+          place: "state-dynamics-engine / probe",
+          href: "https://donaldtuttle.github.io/state-dynamics-engine/simulator/probe.html",
+          openLabel: "Open probe",
+          sourceHref: "https://github.com/donaldtuttle/state-dynamics-engine",
+        },
+        {
+          id: "weather",
+          group: "state",
+          name: "Memory Weather",
+          tag: "Separate experimental engine",
+          summary: "Stored history, input fields, basin events, and coupling between two simulation instances.",
+          place: "state-dynamics-engine / memory-weather",
+          href: "https://donaldtuttle.github.io/state-dynamics-engine/memory-weather/",
+          openLabel: "Open Memory Weather",
+          sourceHref: "https://github.com/donaldtuttle/state-dynamics-engine",
+        },
+        {
+          id: "weather-lab",
+          group: "state",
+          name: "Memory Weather Lab",
+          tag: "Same Memory Weather engine",
+          summary: "Another spatial workspace for the same Memory Weather simulation and replay data.",
+          place: "state-dynamics-engine / memory-weather-lab",
+          href: "https://donaldtuttle.github.io/state-dynamics-engine/memory-weather-lab/",
+          openLabel: "Open workspace",
+          sourceHref: "https://github.com/donaldtuttle/state-dynamics-engine",
+        },
+        {
+          id: "three-lane",
+          group: "prompt",
+          name: "Three-Lane Probe",
+          tag: "Live viewport",
+          summary: "One question, three ways: plain, with the public demo fixture, and with a length-matched control. The page keeps the messages and their hashes.",
+          place: "three-lane-probe",
+          href: "https://cactus-umbra-vivid-lunar.grok.me/",
+          openLabel: "Open Three-Lane Probe",
+          sourceHref: "https://github.com/donaldtuttle/three-lane-probe",
+        },
+        {
+          id: "workbench",
+          group: "prompt",
+          name: "Prompt Engineering Workbench",
+          tag: "Local harness · v0.2.0",
+          summary: "The Python workbench for the same kind of comparison. It runs on your computer. Mock mode works offline. This is not the live viewport.",
+          place: "prompt-engineering-workbench",
+          href: "https://github.com/donaldtuttle/prompt-engineering-workbench",
+          openLabel: "Open repository",
+          sourceHref: "https://github.com/donaldtuttle/prompt-engineering-workbench",
+        },
+        {
+          id: "hme",
+          group: "memory",
+          name: "HME Plate",
+          tag: "Browser demo",
+          summary: "Store a pattern, query with a noisy clue, and see what the shared field and the item ledger each change in the ranking.",
+          place: "HME",
+          href: "https://donaldtuttle.github.io/HME/",
+          openLabel: "Open HME Plate",
+          sourceHref: "https://github.com/donaldtuttle/HME",
+        },
+        {
+          id: "lattice",
+          group: "lattice",
+          name: "Lattice Dynamics Lab",
+          tag: "Separate simulation",
+          summary: "A grid of connected cells. Keep the start fixed, change one rule, and compare the pattern.",
+          place: "lattice-dynamics-lab-",
+          href: "https://donaldtuttle.github.io/lattice-dynamics-lab-/",
+          openLabel: "Open lattice lab",
+          sourceHref: "https://github.com/donaldtuttle/lattice-dynamics-lab-",
+        },
+      ];
+
+      const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>';
+      let group = "all";
+      const queryInput = document.getElementById("query");
+      const filters = document.getElementById("filters");
+      const list = document.getElementById("list");
+      const empty = document.getElementById("empty");
+
+      function el(tag, className, text) {
+        const node = document.createElement(tag);
+        if (className) node.className = className;
+        if (text != null) node.textContent = text;
+        return node;
+      }
+
+      function renderFilters() {
+        filters.replaceChildren();
+        for (const item of groups) {
+          const button = el("button", "", item.label);
+          button.type = "button";
+          button.setAttribute("aria-pressed", String(group === item.id));
+          button.addEventListener("click", () => {
+            group = item.id;
+            render();
+          });
+          filters.append(button);
+        }
+      }
+
+      function visibleItems() {
+        const needle = queryInput.value.trim().toLowerCase();
+        return instruments.filter((item) => {
+          if (group !== "all" && item.group !== group) return false;
+          if (!needle) return true;
+          return [item.name, item.summary, item.tag, item.place].some((value) =>
+            value.toLowerCase().includes(needle),
+          );
+        });
+      }
+
+      function render() {
+        renderFilters();
+        const visible = visibleItems();
+        list.replaceChildren();
+        empty.hidden = visible.length > 0;
+        for (const id of sectionOrder) {
+          const items = visible.filter((item) => item.group === id);
+          if (!items.length) continue;
+          const section = document.createElement("section");
+          section.className = "group";
+          const head = el("div", "group-head");
+          const title = el("h2", "", groupTitles[id]);
+          title.id = "group-" + id;
+          section.setAttribute("aria-labelledby", title.id);
+          head.append(title, el("span", "", String(items.length)));
+          const grid = el("div", "grid");
+          for (const item of items) {
+            const card = el("article", "card");
+            card.append(el("p", "tag", item.tag), el("h3", "", item.name), el("p", "summary", item.summary), el("p", "place", item.place));
+            const actions = el("div", "actions");
+            const open = document.createElement("a");
+            open.href = item.href;
+            open.target = "_blank";
+            open.rel = "noreferrer";
+            open.append(document.createTextNode(item.openLabel), document.createRange().createContextualFragment(arrow));
+            actions.append(open);
+            if (item.href !== item.sourceHref) {
+              const source = document.createElement("a");
+              source.className = "source";
+              source.href = item.sourceHref;
+              source.target = "_blank";
+              source.rel = "noreferrer";
+              source.textContent = "Source";
+              actions.append(source);
+            }
+            card.append(actions);
+            grid.append(card);
+          }
+          section.append(head, grid);
+          list.append(section);
+        }
+      }
+
+      queryInput.addEventListener("input", render);
+      render();
+    </script>
+  </body>
+</html>
