@@ -6,7 +6,7 @@
     <title>Research Apps</title>
     <meta
       name="description"
-      content="Index of the current browser instruments: state dynamics, prompt comparison, memory, and a lattice simulation."
+      content="Index of the public browser instruments: state dynamics, QOFT calculus, prompt and context, memory, and a lattice simulation."
     />
     <meta name="theme-color" content="#071014" />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
@@ -200,17 +200,19 @@
       const groups = [
         { id: "all", label: "All" },
         { id: "state", label: "State" },
+        { id: "qoft", label: "QOFT" },
+        { id: "lattice", label: "Lattice" },
         { id: "prompt", label: "Prompt" },
         { id: "memory", label: "Memory" },
-        { id: "lattice", label: "Lattice" },
       ];
       const groupTitles = {
         state: "State dynamics",
-        prompt: "Prompt comparison",
-        memory: "Memory",
+        qoft: "QOFT calculus",
         lattice: "Lattice",
+        prompt: "Prompt and context",
+        memory: "Memory",
       };
-      const sectionOrder = ["state", "prompt", "memory", "lattice"];
+      const sectionOrder = ["state", "qoft", "lattice", "prompt", "memory"];
       const instruments = [
         {
           id: "lab",
@@ -288,6 +290,116 @@
           href: "https://donaldtuttle.github.io/HME/",
           openLabel: "Open HME Plate",
           sourceHref: "https://github.com/donaldtuttle/HME",
+        },
+        {
+          id: "qoft-lab",
+          group: "qoft",
+          name: "QOFT Lab",
+          tag: "n = 2 lattice toy",
+          summary: "A two-dimensional field with a metric and an optional phase flip. Same seed, gate on or off, then read the checks. Not a theory of everything. Lattice Dynamics Lab is the plain-language edition.",
+          place: "qoft-lab",
+          href: "https://donaldtuttle.github.io/qoft-lab/",
+          openLabel: "Open QOFT Lab",
+          sourceHref: "https://github.com/donaldtuttle/qoft-lab",
+        },
+        {
+          id: "r12-sim",
+          group: "qoft",
+          name: "R12 Simulator",
+          tag: "Public realization A",
+          summary: "The qoft-calculus reference engine. Step a seeded run and turn one mechanism off. Not the State Dynamics Lab.",
+          place: "qoft-calculus / simulator",
+          href: "https://donaldtuttle.github.io/qoft-calculus/simulator/",
+          openLabel: "Open simulator",
+          sourceHref: "https://github.com/donaldtuttle/qoft-calculus",
+        },
+        {
+          id: "r12-probe",
+          group: "qoft",
+          name: "R12 Compact Probe",
+          tag: "Same public engine",
+          summary: "Radar and parity view of that qoft-calculus simulator. Not the State Dynamics compact probe.",
+          place: "qoft-calculus / probe",
+          href: "https://donaldtuttle.github.io/qoft-calculus/simulator/probe.html",
+          openLabel: "Open probe",
+          sourceHref: "https://github.com/donaldtuttle/qoft-calculus",
+        },
+        {
+          id: "calc-weather",
+          group: "qoft",
+          name: "QOFT Memory Weather",
+          tag: "qoft-calculus realization",
+          summary: "The Memory Weather viewport that ships with qoft-calculus. A different declared engine from the State Dynamics copy.",
+          place: "qoft-calculus / memory-weather",
+          href: "https://donaldtuttle.github.io/qoft-calculus/memory-weather/",
+          openLabel: "Open Memory Weather",
+          sourceHref: "https://github.com/donaldtuttle/qoft-calculus",
+        },
+        {
+          id: "calc-weather-lab",
+          group: "qoft",
+          name: "QOFT Memory Weather Lab",
+          tag: "Same calculus weather engine",
+          summary: "A React workspace for the qoft-calculus Memory Weather engine. Not the State Dynamics lab.",
+          place: "qoft-calculus / memory-weather-lab",
+          href: "https://donaldtuttle.github.io/qoft-calculus/memory-weather-lab/",
+          openLabel: "Open workspace",
+          sourceHref: "https://github.com/donaldtuttle/qoft-calculus",
+        },
+        {
+          id: "r12-host",
+          group: "qoft",
+          name: "QOSMOS R12",
+          tag: "Separate hosted probe",
+          summary: "A 12-axis radar on its own host. It is not the repository simulator, and the same seed is not the same trace.",
+          place: "qosmos-r-12",
+          href: "https://qosmos-r-12.grok.me/",
+          openLabel: "Open R12 probe",
+          sourceHref: "https://github.com/donaldtuttle/qoft-calculus",
+        },
+        {
+          id: "glyph",
+          group: "qoft",
+          name: "Glyphogenic Calculus",
+          tag: "Typed realization B",
+          summary: "The interactive workbench. A separate realization from the repository simulator. Do not compare traces across the two.",
+          place: "glyphogenic-calculus",
+          href: "https://glyphogenic-calculus.grok.me/",
+          openLabel: "Open workbench",
+          sourceHref: "https://github.com/donaldtuttle/qoft-calculus",
+        },
+        {
+          id: "context",
+          group: "prompt",
+          name: "Context Engineer Workbench",
+          tag: "Browser app",
+          summary: "Paste the background once, keep asking, and inspect the record for each turn. Mock runs without a model call.",
+          place: "context-engineer-workbench",
+          href: "https://context-engineer-workbench.grok.me/",
+          openLabel: "Open workbench",
+          sourceHref: "https://github.com/donaldtuttle/context-engineer-workbench",
+        },
+        {
+          id: "braid",
+          group: "memory",
+          name: "Braid Memory",
+          tag: "Side instrument",
+          summary: "Compare three ways of matching an update to an earlier record. Synthetic histories only. The live page is the original host. The Experiment tab in the repository is not on that host.",
+          place: "braid-memory",
+          href: "https://hme-operator-braid-memory.grok.me/",
+          openLabel: "Open Braid Memory",
+          sourceHref: "https://github.com/donaldtuttle/braid-memory",
+        },
+        {
+          id: "decision",
+          group: "memory",
+          name: "Decision Revision Bench",
+          tag: "Illustrative fixture",
+          summary: "Keep, change, or wait after a later update, then score the choice. Fixture only. The HME field is not connected. The live page is not a pinned copy of the repository.",
+          place: "HME / decision-revision",
+          href: "https://decision-revision.grok.me/",
+          openLabel: "Open the bench",
+          sourceHref: "https://github.com/donaldtuttle/HME/tree/main/demos/decision-revision",
         },
         {
           id: "lattice",
