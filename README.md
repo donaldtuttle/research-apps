@@ -1,25 +1,54 @@
 # Research Apps
 
-Static index of the current browser instruments.
+Public browser instruments. One link opens the live app. The other opens the source.
 
-One HTML file. No install and no build.
+Same display name can be a different engine. Read the place line before comparing traces.
 
-## Host on GitHub Pages
+KeyShot repos, private repos, and non-app tools are not listed. That includes kernels, skills, and protocol suites.
 
-The source is on `main`; GitHub Pages is not yet enabled for this repository.
+## State dynamics
 
-1. For an independent copy, create a repository and push this folder to `main`.
-2. Settings, then Pages.
-3. Source: Deploy from a branch. Branch: `main`. Folder: `/` (root).
+Place: `state-dynamics-engine`
 
-The site URL is `https://<user>.github.io/<repository>/`.
+- [State Dynamics Lab](https://donaldtuttle.github.io/state-dynamics-engine/simulator/) · [source](https://github.com/donaldtuttle/state-dynamics-engine)
+- [Compact Probe](https://donaldtuttle.github.io/state-dynamics-engine/simulator/probe.html) · [source](https://github.com/donaldtuttle/state-dynamics-engine)
+- [Memory Weather](https://donaldtuttle.github.io/state-dynamics-engine/memory-weather/) · [source](https://github.com/donaldtuttle/state-dynamics-engine)
+- [Memory Weather Lab](https://donaldtuttle.github.io/state-dynamics-engine/memory-weather-lab/) · [source](https://github.com/donaldtuttle/state-dynamics-engine)
 
-Edit the list in `index.html`. Each card is one object in `instruments`.
+## QOFT calculus
 
-## What is listed
+- [QOFT Lab](https://donaldtuttle.github.io/qoft-lab/) · [source](https://github.com/donaldtuttle/qoft-lab)
+- [R12 Simulator](https://donaldtuttle.github.io/qoft-calculus/simulator/) · [source](https://github.com/donaldtuttle/qoft-calculus)
+- [R12 Compact Probe](https://donaldtuttle.github.io/qoft-calculus/simulator/probe.html) · [source](https://github.com/donaldtuttle/qoft-calculus)
+- [QOFT Memory Weather](https://donaldtuttle.github.io/qoft-calculus/memory-weather/) · [source](https://github.com/donaldtuttle/qoft-calculus)
+- [QOFT Memory Weather Lab](https://donaldtuttle.github.io/qoft-calculus/memory-weather-lab/) · [source](https://github.com/donaldtuttle/qoft-calculus)
+- [QOSMOS R12](https://qosmos-r-12.grok.me/) · [source](https://github.com/donaldtuttle/qoft-calculus)
+- [Glyphogenic Calculus](https://glyphogenic-calculus.grok.me/) · [source](https://github.com/donaldtuttle/qoft-calculus)
 
-Public browser instruments only.
+QOSMOS R12 and Glyphogenic Calculus are separate hosts. They are not the repository simulator. The same seed is not the same trace.
 
-Left out on purpose: KeyShot repositories, private repositories, and tools that are not apps. That includes kernels, skills, and protocol suites.
+## Lattice
 
-The same display name can be a different engine. The place line on each card says which repository the run comes from.
+- [Lattice Dynamics Lab](https://donaldtuttle.github.io/lattice-dynamics-lab-/) · [source](https://github.com/donaldtuttle/lattice-dynamics-lab-)
+
+Plain-language edition of the QOFT Lab field. Not the symbolic QOFT Lab above.
+
+## Prompt and context
+
+- [Three-Lane Probe](https://cactus-umbra-vivid-lunar.grok.me/) · [source](https://github.com/donaldtuttle/three-lane-probe)
+- [Prompt Engineering Workbench](https://github.com/donaldtuttle/prompt-engineering-workbench) · local harness, not the live viewport
+- [Context Engineer Workbench](https://context-engineer-workbench.grok.me/) · [source](https://github.com/donaldtuttle/context-engineer-workbench)
+
+## Memory
+
+- [HME Plate](https://donaldtuttle.github.io/HME/) · [source](https://github.com/donaldtuttle/HME)
+- [Braid Memory](https://hme-operator-braid-memory.grok.me/) · [source](https://github.com/donaldtuttle/braid-memory)
+- [Decision Revision Bench](https://decision-revision.grok.me/) · [source](https://github.com/donaldtuttle/HME/tree/main/demos/decision-revision)
+
+Braid Memory and Decision Revision Bench open the original live hosts. The newer copies in those repositories are not what those hosts serve.
+
+## This index
+
+`index.html` is the card page. Each card is one object in `instruments`.
+
+GitHub Pages is not on for this repository yet. Settings, then Pages. Deploy from branch `main`, folder `/` (root). The site is then `https://donaldtuttle.github.io/research-apps/`.
