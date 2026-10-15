@@ -5,7 +5,7 @@ A simple directory of my research projects and interactive demos. Select a proje
 ## State dynamics
 
 - **State Dynamics Engine:** A simulation of 12 numbers that change over time. Repeat a run with noise, memory, or basin projection switched on or off to investigate what each mechanism does. Memory Weather uses a separate experimental engine.  
-  **Demos:** [State Dynamics Lab](https://donaldtuttle.github.io/state-dynamics-engine/simulator/) · [Compact Probe](https://donaldtuttle.github.io/state-dynamics-engine/simulator/probe.html) · [Memory Weather](https://donaldtuttle.github.io/state-dynamics-engine/memory-weather/) · [Memory Weather Lab](https://donaldtuttle.github.io/state-dynamics-engine/memory-weather-lab/)  
+  **Demos:** [State Dynamics Lab](https://donaldtuttle.github.io/state-dynamics-engine/simulator/) · [Memory Weather Lab](https://donaldtuttle.github.io/state-dynamics-engine/memory-weather-lab/) · [Compact Probe](https://donaldtuttle.github.io/state-dynamics-engine/simulator/probe.html) (State Dynamics Lab v1) · [Memory Weather](https://donaldtuttle.github.io/state-dynamics-engine/memory-weather/) (v1)  
   **Source:** [GitHub repository](https://github.com/donaldtuttle/state-dynamics-engine)
 
 ## Memory
@@ -19,16 +19,16 @@ A simple directory of my research projects and interactive demos. Select a proje
   **Source:** [GitHub repository](https://github.com/donaldtuttle/braid-memory)
 ## Prompt and context
 
-- **Three-Lane Probe:** Ask the same AI question three ways: normally, with added context, and with a length-matched control. It helps investigate whether differences come from the added information or simply a longer prompt; it does not score answer quality.  
-  **Demo:** [Three-Lane Probe](https://cactus-umbra-vivid-lunar.grok.me/)  
-  **Source:** [GitHub repository](https://github.com/donaldtuttle/three-lane-probe)
+- **Context Engineer Workbench:** Give an AI reusable background material, ask follow-up questions, and inspect what was supplied on each turn. Its diagnostics include token usage and content hashes; hashes do not prove that the AI used the information correctly.  
+  **Demo:** [Context Engineer Workbench](https://context-engineer-workbench.grok.me/)  
+  **Source:** [GitHub repository](https://github.com/donaldtuttle/context-engineer-workbench)
 
 - **Prompt Engineering Workbench:** A local tool for controlled comparisons between a baseline prompt, injected context, and a length-matched control. Saves inputs, hashes, and run records for inspection and replay. Runs on your computer, with an offline mock mode.  
   **Local setup and source:** [GitHub repository](https://github.com/donaldtuttle/prompt-engineering-workbench)
 
-- **Context Engineer Workbench:** Give an AI reusable background material, ask follow-up questions, and inspect what was supplied on each turn. Its diagnostics include token usage and content hashes; hashes do not prove that the AI used the information correctly.  
-  **Demo:** [Context Engineer Workbench](https://context-engineer-workbench.grok.me/)  
-  **Source:** [GitHub repository](https://github.com/donaldtuttle/context-engineer-workbench)
+- **Three-Lane Probe:** Ask the same AI question three ways: normally, with added context, and with a length-matched control. It helps investigate whether differences come from the added information or simply a longer prompt; it does not score answer quality.  
+  **Demo:** [Three-Lane Probe](https://cactus-umbra-vivid-lunar.grok.me/)  
+  **Source:** [GitHub repository](https://github.com/donaldtuttle/three-lane-probe)
 
 ## Lattice
 
