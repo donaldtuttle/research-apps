@@ -5,7 +5,12 @@ A simple directory of my research projects and interactive demos. Select a proje
 ## State dynamics
 
 - **State Dynamics Engine:** A simulation of 12 numbers that change over time. Repeat a run with noise, memory, or basin projection switched on or off to investigate what each mechanism does. Memory Weather uses a separate experimental engine.  
-  **Demos:** [State Dynamics Lab](https://donaldtuttle.github.io/state-dynamics-engine/simulator/) · [Memory Weather Lab](https://donaldtuttle.github.io/state-dynamics-engine/memory-weather-lab/) · [Compact Probe](https://donaldtuttle.github.io/state-dynamics-engine/simulator/probe.html) (State Dynamics Lab v1) · [Memory Weather](https://donaldtuttle.github.io/state-dynamics-engine/memory-weather/) (v1)  
+  **Demos:**
+  - [State Dynamics Lab](https://donaldtuttle.github.io/state-dynamics-engine/simulator/)
+  - [Memory Weather Lab](https://donaldtuttle.github.io/state-dynamics-engine/memory-weather-lab/)
+  - [Compact Probe](https://donaldtuttle.github.io/state-dynamics-engine/simulator/probe.html) (State Dynamics Lab v1)
+  - [Memory Weather](https://donaldtuttle.github.io/state-dynamics-engine/memory-weather/) (v1)
+
   **Source:** [GitHub repository](https://github.com/donaldtuttle/state-dynamics-engine)
 
 ## Memory
@@ -39,10 +44,19 @@ A simple directory of my research projects and interactive demos. Select a proje
 ## QOFT
 
 - **QOFT Lab:** A small simulation of a numerical field on a two-dimensional grid. Compare runs with an optional phase-flip rule turned on and off to see how it changes the results.  
-  **Demo:** [QOFT Lab](https://donaldtuttle.github.io/qoft-lab/)  
+  **Demo:**
+  - [QOFT Lab](https://donaldtuttle.github.io/qoft-lab/)
+
   **Source:** [GitHub repository](https://github.com/donaldtuttle/qoft-lab)
 
 - **QOFT Calculus:** Turns a set of mathematical update rules into a repeatable 12-dimensional simulation. Inspect its behavior and disable individual mechanisms to see what changes. Some linked tools are separate implementations, so their results are not automatically comparable.  
-  **Demos:** [R12 Simulator](https://donaldtuttle.github.io/qoft-calculus/simulator/) · [Compact Probe](https://donaldtuttle.github.io/qoft-calculus/simulator/probe.html) · [Memory Weather](https://donaldtuttle.github.io/qoft-calculus/memory-weather/) · [Memory Weather Lab](https://donaldtuttle.github.io/qoft-calculus/memory-weather-lab/) · [QOSMOS R12](https://qosmos-r-12.grok.me/) · [Glyphogenic Calculus](https://glyphogenic-calculus.grok.me/)  
+  **Demos:**
+  - [R12 Simulator](https://donaldtuttle.github.io/qoft-calculus/simulator/)
+  - [Compact Probe](https://donaldtuttle.github.io/qoft-calculus/simulator/probe.html)
+  - [Memory Weather](https://donaldtuttle.github.io/qoft-calculus/memory-weather/)
+  - [Memory Weather Lab](https://donaldtuttle.github.io/qoft-calculus/memory-weather-lab/)
+  - [QOSMOS R12](https://qosmos-r-12.grok.me/)
+  - [Glyphogenic Calculus](https://glyphogenic-calculus.grok.me/)
+
   **Source:** [GitHub repository](https://github.com/donaldtuttle/qoft-calculus)
 
