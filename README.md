@@ -19,6 +19,7 @@ A simple directory of my research projects and interactive demos. Select a proje
   **Demos:**
   - [HME Plate](https://donaldtuttle.github.io/HME/)
   - [Decision Revision Bench](https://decision-revision.grok.me/) ([source](https://github.com/donaldtuttle/HME/tree/main/demos/decision-revision))
+
   **Source:** [GitHub repository](https://github.com/donaldtuttle/HME)
 
 - **Braid Memory:** Experiments with matching later updates to their earlier source records, including comparisons against ordinary search. It uses synthetic histories; the linked hosted demo does not include all newer experiments in the repository.  
